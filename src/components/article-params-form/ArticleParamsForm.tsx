@@ -28,7 +28,7 @@ type FormState = {
 	fontSizeOption: OptionType;
 };
 export const ArticleParamsForm = (props: click) => {
-	const [open, setIsOpen] = useState(false);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [selectedFamilyOptions, setSelectedFamilyOptions] = useState(
 		fontFamilyOptions[0]
 	);
@@ -42,9 +42,10 @@ export const ArticleParamsForm = (props: click) => {
 	);
 	const rootRef = useRef<HTMLDivElement>(null);
 	useOutsideClickClose({
-		isOpen: open,
+		isOpen: isMenuOpen,
 		rootRef: rootRef,
-		onChange: setIsOpen,
+		onChange: setIsMenuOpen,
+		onClose: () => setIsMenuOpen(false),
 	});
 
 	const handleClickClear = () => {
@@ -76,13 +77,15 @@ export const ArticleParamsForm = (props: click) => {
 	return (
 		<div ref={rootRef}>
 			<ArrowButton
-				isOpen={open}
+				isOpen={isMenuOpen}
 				onClick={() => {
-					setIsOpen(!open);
+					setIsMenuOpen(!isMenuOpen);
 				}}
 			/>
 			<aside
-				className={clsx(styles.container, { [styles.container_open]: open })}>
+				className={clsx(styles.container, {
+					[styles.container_open]: isMenuOpen,
+				})}>
 				<form className={styles.form} onSubmit={handleClickSubmit}>
 					<Text
 						align={'left'}
