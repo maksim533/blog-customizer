@@ -1,5 +1,6 @@
 # Blog Customizer
 
+![Фото проекта](./src/images/project-image.png)
 Интерактивное веб-приложение для настройки внешнего вида блогов и статей с возможностью изменения шрифтов, цветов, размеров и других параметров отображения контента.
 
 ## 🚀 Функциональность
@@ -128,6 +129,9 @@ npm run stylelint:fix
 npm run lint
 npm run format
 ```
+
+## 🧩 Деплой
+GitHub Pages: https://maksim533.github.io/blog-customizer
 
 ## 📝 Работа с Git
 
